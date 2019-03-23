@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="../../js/jQuerybag.js" ></script>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		button,input,textarea{outline: none;}
+		div{width:80%;color: #66CCCC;margin-left:35%;margin-top:20px;line-height: 40px;}
+		p{float: left;height: 30px;margin: 5px 0;}
+		span{width: 20%;border: none;border-bottom: 1px solid #66CCCC;}
+		textarea{width: 20%;height: 50px;border-color: #66CCCC;}
+		button{
+			width: 10%;height: 25px;
+			background-color: #66CCCC;border-radius: 10px;
+			margin-left: 50%;margin-top: 20px;
+		}
+	</style>
+	<body onload="getUpdate()">
+		<div id="div">
+			<p>姓名：</p><span id="xm"></span><br />
+			<p>昵称：</p><span id="nc"></span><br />
+			<p>账号：</p><span id="zh"></span><br />
+			<p>密码：</p><span id="oldPwd"></span><br />
+			<p>性别：</p><span id="xb"></span><br />
+			<p>出生年月：</p><span id="birthday"></span><br />
+			<p>个人简介：</p><span id="grjj"></span></textarea>
+		</div>
+		<button id="updata" type="submit">修改</button>
+	</body>
+	<script language="JavaScript">
+		function GetQueryString(name) {
+   			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    		var r = window.location.search.substr(1).match(reg);
+    		if (r != null)
+      		return unescape(r[2]);
+   			return null;
+		}
+		function getUpdate(){
+			$.ajax({
+				type:"post",
+				url:"http://yiezi.ml:80/json/viewMember?id="+GetQueryString("id"),
+				ccontentType:"application/json",
+				data:{},
+				success:function(response){
+					$("#xm").val(response[1].xm);
+					$("#nc").val(response[1].yhnc);
+					$("#zh").text(response[1].zh);
+					$("#oldPwd").val();
+					$("#dlmm").val();
+					$("#xb").val(response[1].xb);
+					$("#birthday").text(response[1].csny);
+					$("#grjj").val(response[1].grjj);
+					$("#updata").click(function(){
+						var xm=$("#xm").val();
+						var nc=$("#nc").val();
+						var zh=$("#zh").text();
+						var oldPwd=$("#oldPwd").val();
+						var dlmm=$("#dlmm").val();
+						var xb=$("#xb").val();
+						var birthday=$("#birthday").text();
+						var grjj=$("#grjj").val();
+						$.ajax({
+							type:"post",
+							url:"http://yiezi.ml:80/json/updateMember?id="+GetQueryString("id"),
+							data:{"xm":xm,"yhnc":nc,"zh":zh,"oldPwd":oldPwd,"xb":xb,"csny":birthday,"grjj":grjj},
+							async:true,
+							success:function(response){
+								if(response[0].result){
+									alert(response[0].message);
+								}
+							}
+						});
+					});
+				},
+				error:function(data){  
+                	alert("error");                   
+            	} 
+			});
+		}
+	</script>
+</html>

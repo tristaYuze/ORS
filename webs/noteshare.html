@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../css/headerTop.css" />
+		<link rel="stylesheet" type="text/css" href="../css/noteshare.css" />
+		<script type="text/javascript" src="../js/jQuerybag.js" ></script>
+		<script type="text/javascript" src="../js/noteshare.js" ></script>
+		<meta charset="UTF-8">
+		<!--<meta http-equiv="refresh" content="5"/>-->
+		<title>ORS便签分享</title>
+	</head>
+	<body>
+		<header class="top">
+			<div class="logo"><a href="index.html"><img src="../img/logo (2).png" /></a></div>
+			<nav class="topmain">
+				<a href="index.html">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="boke.html">博客</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="download.html">下载</a>&nbsp;&nbsp;
+				<a href="noteshare.html">便签分享</a>&nbsp;&nbsp;
+			    <a href="person.html">个人中心</a>&nbsp;&nbsp;
+			</nav>
+			<div class="topsearch">
+				<input type="search" class="search" placeholder="搜索一下"/>
+				<input type="image" src="../img/searchimg.png" class="searchbtn" />
+			</div>
+			<div class="boke"><img  class="bokeimg" src="../img/wboke.png" /></div>
+			<nav class="toplogin">
+				<a class="wboke" href="writeBoke.html">写博客</a>&nbsp;
+				<a class="login" href="login.html">登录</a>&nbsp;
+				<a class="enroll" href="enroll.html">注册</a>&nbsp;
+			</nav>
+		</header>
+		<section >
+			<div class="noteLeft">
+				<div class="speak">
+					<textarea id="shuoshuo" type="text" placeholder="说点什么吧！"></textarea>
+					<div class="release">
+						<input type="image" src="../img/face.png"/>
+						<input type="image" src="../img/pic1.png"/>
+					</div>
+					<input id="releaseBtn" type="button" value="发布" />
+				</div>
+				<div id="dynamic">
+					<input type="button" value="热门"/>
+					<input type="button" value="全部"/>
+					<input type="button" value="博客"/>
+					<input type="button" value="图片"/>
+				</div>
+				<div id="dynamicDiv">
+					<div id="hotnews">
+						<div>
+							<div class="userimg">
+								<a href="person.html"><input type="image" src="../img/hand1.png" /></a>
+								<a href="person.html"><h2>yuze</h2></a><p>data</p>
+								<button class="delete">删除</button>
+							</div>
+							<div class="userspeak">
+								<p>lala</p><br/>
+								<img src="../img/美食1.jpg" />
+							</div>
+							<div id="visit">
+								<input type="image" src="../img/turn.png" onclick="turn()"/>
+								<input type="image" src="../img/news.png" />
+								<div class="praise">
+								  <span id="praise">
+								    <img src="../img/zan1.png" id="praise-img" />
+								  </span>
+								  <span id="praise-txt">0</span>
+								  <span id="add-num"><em>+1</em></span>
+								</div>
+						 	</div>
+						</div>	
+					</div>
+					<div id="all">全部
+					</div>
+					<div>博客</div>
+					<div id="pic">
+						图片
+					</div>
+				</div>
+			</div>
+			<div class="noteRight">
+				<div id="clock" class="date">
+					<div id="clockYear">
+						<p></p><p></p><p></p><p></p><p></p>
+						<p></p><p></p><p></p><p></p><p></p>
+					</div>
+					<div id="clockHours">
+						<p></p><p></p><p></p><p></p>
+						<p></p><p></p><p></p><p></p>
+					</div>
+					<div id="clockDay">
+						<p></p><p></p><p></p>
+					</div>
+				</div>
+				<div class="noteRightbot">
+					<img src="../img/bg(1).png"/>
+					<div class="noteRightbot_in">
+						<img src="../img/wdsc.png" /><a href="noteshareChild/collect.html">我的收藏</a><br/>
+						<img src="../img/wdgz.png"/><a href="noteshareChild/attention.html">我的关注</a><br/>
+						<img src="../img/ywxg.png"/><a href="noteshareChild/related.html">与我相关</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<footer>
+			<span><a href="#">知识产权</a> | <a href="#">关于我们</a> | <a href="#">联系我们</a> | <a href="#">有害信息举报 | </a></span>
+			<span>ORS营业执照:000000000000 | 网络文化经营许可证:XXXX-XXX号 | 增值电信业务经营许可证:ORS-XXXXXXXX | 安全责任书 </span>
+		</footer>
+		
+	</body>
+	<script language="JavaScript">
+//		function turn(){
+//			var content=$(this).parent("div").parent("img").html();
+//			$("#shuoshuo").innerHTML={"content"};
+//		}
+		/* @author:Romey
+   * 动态点赞
+   * 此效果包含css3，部分浏览器不兼容（如：IE10以下的版本）
+  */
+  $(function(){
+    $("#praise").click(function(){
+      var praise_img = $("#praise-img");
+      var text_box = $("#add-num");
+      var praise_txt = $("#praise-txt");
+      var num=parseInt(praise_txt.text());
+      if(praise_img.attr("src") == ("../img/zan2.png")){
+        $(this).html("<img src='../img/zan1.png' id='praise-img' class='animation' />");
+praise_txt.removeClass("hover");
+        text_box.show().html("<em class='add-animation'>-1</em>");
+        $(".add-animation").removeClass("hover");
+        num -=1;
+        praise_txt.text(num)
+      }else{
+        $(this).html("<img src='../img/zan2.png' id='praise-img' class='animation' />");
+        praise_txt.addClass("hover");
+        text_box.show().html("<em class='add-animation'>+1</em>");
+        $(".add-animation").addClass("hover");
+        num +=1;
+        praise_txt.text(num)
+      }
+    });
+  })
+	</script>
+</html>

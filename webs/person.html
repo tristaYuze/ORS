@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../css/headerTop.css" />
+		<link rel="stylesheet" type="text/css" href="../css/person.css" />
+		<script src="../js/person.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/jquery-1.11.0.js" ></script>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<header class="top">
+			<div class="logo"><a href="index.html"><img src="../img/logo (2).png" /></a></div>
+			<nav class="topmain">
+				<a href="index.html">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="boke.html">博客</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="download.html">下载</a>&nbsp;&nbsp;
+				<a href="noteshare.html">便签分享</a>&nbsp;&nbsp;
+			    <a href="person.html">个人中心</a>&nbsp;&nbsp;
+			</nav>
+			<div class="topsearch">
+				<input type="search" class="search" placeholder="搜索一下"/>
+				<input type="image" src="../img/searchimg.png" class="searchbtn" />
+			</div>
+			<div class="boke"><img  class="bokeimg" src="../img/wboke.png" /></div> 
+			<nav class="toplogin">
+				<a class="wboke" href="writeBoke.html">写博客</a>&nbsp;
+				<a class="login" href="login.html">登录</a>&nbsp;
+				<a class="enroll" href="enroll.html">注册</a>&nbsp;
+			</nav>
+		</header>
+		<article>
+			<label for="bgfile">
+			<div class="bgimg">
+				<img src="../img/bg1.jpg" id="bgimg"/>
+				<input type="file" id="bgfile" style="display: none;" />
+				<input type="button" value="上传背景图片"/>
+			</div></label>
+			<div class="personsourse">
+				<div action="/uploaduserImg" enctype="multipart/form-data" method="post" id="accountS">
+					<label for="file"><img src="../img/bg3.jpg" id="img" /></label><br/>
+					<input type="file" name="upload" id="file" style="display: none;"/>
+					<input type="submit" value="上传头像" id="submit"/>
+				</div>
+				<div id="accountX">
+					<h3>账号名</h3>
+					<p>啦啦啦啦啦啦，我是卖报的小行家</p>
+				</div>
+				<a href="editorPerson.html">编辑个人资料</a>
+				
+			</div>
+		</article>
+		<section id="person">
+			<div id="personMenu">
+				<input type="button" value="动态"/>
+				<input type="button" value="评论"/>
+				<input type="button" value="博客"/>
+				<input type="button" value="图片"/>
+			</div>
+			<section>
+				<p>我的动态</p>
+				<div>
+					<div class="myDynamic">
+						<div id="txt">美食，顾名思义就是美味的食物，贵的有山珍海味，便宜的有街边小吃。其实美食是不分贵贱的，
+							只要是自己喜欢的，都可以称之为美食。中国素有”烹饪王国“这个美誉。在中国这个大家庭里，我们
+							有五十六个小家庭，每个家庭都有自己的特色美食。美食吃前有期待、吃后有回味，已不仅仅是简单
+							的味觉感受，更是一种精神享受。享受美食也要看场合，场合好美食吃起来才有味道。世界各地美食
+							文化博大精深，营养物质各不相同，品味更多美食，享受更多健康，也让人吃的更加开心。
+						</div>
+						<p>2018-10-11</p><p>访问量</p>
+					</div>
+				</div>
+			</section>
+			<section>
+				<p>我的评论</p>
+				<div>
+					<div class="myVisit">
+						<div>用户名</div>
+						<div id="txt">美食，顾名思义就是美味的食物，贵的有山珍海味，便宜的有街边小吃。其实美食是不分贵贱的，
+							只要是自己喜欢的，都可以称之为美食。中国素有”烹饪王国“这个美誉。在中国这个大家庭里，我们
+							有五十六个小家庭，每个家庭都有自己的特色美食。美食吃前有期待、吃后有回味，已不仅仅是简单
+							的味觉感受，更是一种精神享受。享受美食也要看场合，场合好美食吃起来才有味道。世界各地美食
+							文化博大精深，营养物质各不相同，品味更多美食，享受更多健康，也让人吃的更加开心。
+						</div>
+						<p>2018-10-11</p><p>访问量</p>
+						<input class="delete" type="button" value="删除"/>
+					</div>
+				</div>
+			</section>
+			<section>
+				<p>我的博客</p>
+				<div>
+					<div class="myDynamic">
+						<div id="txt">美食，顾名思义就是美味的食物，贵的有山珍海味，便宜的有街边小吃。其实美食是不分贵贱的，
+							只要是自己喜欢的，都可以称之为美食。中国素有”烹饪王国“这个美誉。在中国这个大家庭里，我们
+							有五十六个小家庭，每个家庭都有自己的特色美食。美食吃前有期待、吃后有回味，已不仅仅是简单
+							的味觉感受，更是一种精神享受。享受美食也要看场合，场合好美食吃起来才有味道。世界各地美食
+							文化博大精深，营养物质各不相同，品味更多美食，享受更多健康，也让人吃的更加开心。
+						</div>
+						<p>2018-10-11</p><p>访问量</p><input class="delete" type="button" value="删除"/>
+					</div>
+				</div>
+			</section>
+			<section>
+				<p>我的图片</p>
+			</section>
+		</section>
+		<div class="personvisit">
+			<img src="../img/bg (2).jpg" />
+			<div class="personvisitIn">
+				<p>关注</p><p>粉丝</p><p>浏览量</p>
+			</div>
+		</div>
+		
+		<script>
+			$("#file").change(function (){
+				var objUrl = getObjectURL(this.files[0]) ;
+				if(objUrl){
+					$("#img").attr("src",objUrl);
+				}
+			});
+			$("#bgfile").change(function (){
+				var objUrl=getObjectURL(this.files[0]);
+				if(objUrl){
+					$("#bgimg").attr("src",objUrl);
+				}
+			});
+//		function saveUser2() {
+//		    var file = document.getElementById("file").files[0];
+//		    var formData = new FormData();
+//		
+//		    formData.append('upload', file);
+//		
+//		    $.ajax({
+//		        url: "http://localhost:8080/json/uploaduserImg",
+//		        type: "post",
+//		        data: formData,
+//		        contentType: false,
+//		        processData: false,
+//		        mimeType: "multipart/form-data",
+//		        success: function (data) {
+//		            console.log(data);
+//		        },
+//		        error: function (data) {
+//		            console.log(data);
+//		        }
+//		    });
+
+//请求
+//  $("#submit").click(function (){
+//  	var imgurl=document.getElementById("file").value;
+//  	$.ajaxFileUpload({
+//          url:"http://119.23.213.108/json/uploaduserImg",
+//          fileElementId: "upload", //文件上传域的ID，这里是input的ID，而不是img的
+//          dataType: 'json', //返回值类型 一般设置为json
+//          contentType: "application/x-www-form-urlencoded; charset=utf-8",
+//          success: function (data) {
+//              alert(data.code+" "+ data.msg);
+//              if (data.code==200){
+//
+//              }
+//          }
+//     });
+//  });
+   
+    //建立一個可存取到該file的url  
+    function getObjectURL(file) {  
+      var url = "" ;     
+      if (window.createObjectURL!=undefined) { // basic  
+        url = window.createObjectURL(file) ;  
+      } else if (window.URL!=undefined) { // mozilla(firefox)  
+        url = window.URL.createObjectURL(file) ;  
+      } else if (window.webkitURL!=undefined) { // webkit or chrome  
+        url = window.webkitURL.createObjectURL(file) ;  
+      }  
+      return url ;  
+    }  
+		</script>
+	</body>
+</html>
+<!--//  $("#img").click(function(){
+//  	$("#file").click();
+//  	$("#file").on("change",function (){
+//  		// this.files代表的是选择的文件资源,获取的路径不是在本地的路径
+//  		var objUrl = getObjectURL(this.files[0]) ;
+//  		if(objUrl){
+//  			$("#img").attr("src",objUrl);
+//  		}
+//  	});
+//  });-->

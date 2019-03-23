@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../css/login.css"/>
+		<script src="../js/login.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/login.js" ></script>
+		<script type="text/javascript" src="../js/jquery-1.11.0.js" ></script>
+		<script type="text/javascript" src="../js/jQuerybag.js" ></script>
+		<meta http-equiv="content-type" content="text/html" charset="utf-8" />
+		<title>用户登录</title>
+		
+	</head>
+	<body>
+		<header>
+			<div class="logo"><a href="index.html"><img src="../img/logo (2).png" /></a></div>
+			<div class="exit">
+				<a href="enroll.html">注册</a>&nbsp;&nbsp;
+			    <a href="index.html">退出</a>
+			</div>
+		</header> 
+		<form class="loginbg">
+			<div class="login">
+				<p>用户登录</p>
+				<input type="text"  placeholder="请输入用户名" id="username"/><br>
+				<input type="password"  placeholder="请输入密码" id="password"/><br>
+				<div class="rembpwd">
+					<input type="checkbox" id="rembpwd" onmouseover="mouseover()" onmouseout="mouseout()"/>记住我的密码
+					<div id="ts">为了您的信息安全，请您不要在公共的设备上开启记住密码哦！</div>
+				</div>
+				<input type="button" name="loginbtn" id="loginbtn" value="登录"/>
+				<a href="enroll.html">还没有账号？立即注册</a>
+			</div>
+		</form>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<footer>
+			<span><a href="#">知识产权</a> | <a href="#">关于我们</a> | <a href="#">联系我们</a> | <a href="#">有害信息举报 | </a></span>
+			<span>ORS营业执照:000000000000 | 网络文化经营许可证:XXXX-XXX号 | 增值电信业务经营许可证:ORS-XXXXXXXX | 安全责任书 </span>
+		</footer>
+	</body>
+	<script type="text/javascript">
+		function createXMLHttpRequest(){
+			var xmlrequest;
+			if(window.XMLHttpRequest){
+				xmlrequest=new XMLHttpRequest();
+			}else if(window.ActiveXObject){
+				try{
+					xmlrequest=new ActiveXObject("Msxm12.XMLHTTP");
+				}catch(e){
+					try{
+						xmlrequest=new ActiveXObject("Microsoft.XMLHTTP");
+					}catch(e){
+						xmlrequest="";
+					}
+				}
+			}
+			return xmlrequest;
+		}
+		$("#loginbtn").click(function(){
+			var username=$("#username").val();
+			var pwd = $("#password").val();
+			if(username =="" || pwd == "" ){
+				alert('表单不能为空！');
+			}else{
+				$.ajax({
+					type:"GET",
+					url:"http://119.23.213.108/signinMember/json",
+					data:{"zh":username,"dlmm":pwd},
+					contentType:'application/json',
+					success:function(response){
+//						var parsedJson=$.parseJSON(response);
+						window.location.href="index.html"; 
+					},
+					error:function(data){  
+                    alert("error");                   
+                	} 
+				});
+			}
+		});	
+</script>
+</html>

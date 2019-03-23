@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../css/enroll.css"/>
+		<script src="../js/enroll.js" type="text/javascript" charset="utf-8"></script>
+		<meta charset="utf-8" />
+		<title>用户注册</title>
+	</head>
+	<body>
+		<header>
+			<div class="logo"><a href="index.html"><img src="../img/logo (2).png" /></a></div>
+			<div class="exit">
+				<a href="login.html">登录</a>&nbsp;&nbsp;
+				<a href="index.html">退出</a>
+			</div>
+		</header>
+		<section class="enrollbg">
+			<div class="enroll">
+				<p>用户注册</p>
+				<input type="text"  placeholder="请输入用户名" id="username"/><br>
+				<ul class="enrollsex">
+					<td>性别：</td>
+					<td><input type="radio" name="sex" value="男">男</td>
+					<td><input type="radio" name="sex" value="女">女</td>
+				</ul>
+				<input type="password"  placeholder="请输入密码" id="password"/><br>
+				<input type="password"  placeholder="请再次确认密码" id="password2"/><br>
+				<input type="email"  placeholder="请输入邮箱" id="email"/><br>
+				<input type="text" id="codeTxt" placeholder=" 验证码" />
+				<div class="code" id="codeDiv" onclick="createCode()" title="看不清?点击此处换一张"></div>
+				<input type="submit" name="enrollbtn" id="enrollbtn" onclick="judgeCode()" value="注册" />
+				<a href="login.html">已有账号？立即登录</a>
+			</div>
+		</section>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<footer>
+			<span><a href="#">知识产权</a> | <a href="#">关于我们</a> | <a href="#">联系我们</a> | <a href="#">有害信息举报 | </a></span>
+			<span>ORS营业执照:000000000000 | 网络文化经营许可证:XXXX-XXX号 | 增值电信业务经营许可证:ORS-XXXXXXXX | 安全责任书 </span>
+		</footer>
+	</body>
+</html>

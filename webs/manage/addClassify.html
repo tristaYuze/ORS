@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="../../js/jQuerybag.js" ></script>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			input{outline: none;/*去掉点击边框*/}
+			div{width:80%;color: #66CCCC;margin-left:35%;margin-top:20px;line-height: 40px;}
+			button{
+				width: 10%;height: 25px;
+				background-color: #66CCCC;border-radius: 10px;
+				margin-left: 50%;margin-top: 20px;
+			}
+			input{width: 20%;border: none;border-bottom: 1px solid #66CCCC;}
+		</style>
+	</head>
+	<body>
+		<div>
+			类名：<input id="flmc" type="text" placeholder="输入新增分类名"/><br />
+			创建时间：<input id="time" type="date" />
+		</div>
+		<button type="button" id="addBtn">新增</button>
+	</body>
+	<script language="JavaScript">
+		$("#addBtn").click(function(){
+			var flmc=$("#flmc").val();
+			var time=$("#time").val();
+			$.ajax({
+				type:"POST",
+				url:"http://yiezi.ml:80/json/addBlogCategory?flmc="+flmc+"&time="+time,
+				data:{},
+				contentType:'application/json',
+				success:function(response){
+					if(response[0].result){
+						alert(response[0].message);
+					}
+				},
+				error:function(data){  
+                alert("error");                   
+            	} 
+			});		
+		});	
+	</script>
+</html>

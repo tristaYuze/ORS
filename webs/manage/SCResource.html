@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../css/manage.css" />
+		<script type="text/javascript" src="../../js/jQuerybag.js" ></script>
+		<script type="text/javascript" src="../../js/manageSearch.js" ></script>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body onload="getResource()">
+		<input type="text" name="search" id="text" class="search" placeholder="搜索关键字">
+		<table>
+			<thead>
+				<th id="id">行号</th>
+				<th id="zym">资源名</th>
+				<th id="scyh">上传资源用户</th>
+				<th id="zytime">创建时间</th>
+				<th id="ZYstate">资源状态</th>
+				<th id="ZYremark">操作</th>
+			</thead>
+			<tbody id="tbody">
+			</tbody>
+		</table>
+	</body>
+	<script>
+		function show(id){
+			$.ajax({
+				type:"post",
+				url:"http://yiezi.ml:80/json/delDataRes?id="+id,
+				contentType:'application/json',
+				data:{},
+				success:function(response){
+					window.location.href ="SCResource.html";
+				},
+				error:function(data){  
+                	alert("error");                   
+            	} 
+			});
+		}
+		function getResource(){
+			$.ajax({
+				type:"get",
+				url:"http://yiezi.ml:80/json/browseData",
+				ccontentType:"application/json",
+				success:function(response){
+					for(var i in response){
+						var sc="<td><a href='javaScript:void(0)' onclick='show("+response[i].id+")'>删除</a></td>"
+						var tr;
+						var data = getMyDate(response[i].scsj);
+						tr="<td>"+response[i].id+"</td>"+"<td>"+response[i].zybt+"</td>"+
+						"<td>"+response[i].yhnc+"</td>"
+						+"<td>"+data+"</td>"+"<td>"+response[i].zylx+"</td>"
+						$("#tbody").append("<tr>"+tr+sc+"</tr>");
+					}
+				},
+				error:function(data){  
+                	alert("error");                   
+            	} 
+			});
+		}
+	</script>
+</html>

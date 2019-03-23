@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="../../js/jQuerybag.js" ></script>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			button,input{outline: none;}
+			div{width:80%;color: #66CCCC;margin-left:35%;margin-top:20px;line-height: 40px;}
+			p{float: left;height: 30px;margin: 5px 0;}
+			input{width: 20%;border: none;border-bottom: 1px solid #66CCCC;}
+			button{
+				width: 10%;height: 25px;
+				background-color: #66CCCC;border-radius: 10px;
+				margin-left: 50%;margin-top: 20px;
+			}
+		</style>
+	</head>
+	<body onload="getClassity()">
+		<div>
+			<p>类名：</p><input id="lm" type="text" placeholder="输入修改类名"/><br />
+		</div>
+		<button id="updata" type="submit">修改</button>
+	</body>
+	<script language="JavaScript">
+		function GetQueryString(name) {
+   			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    		var r = window.location.search.substr(1).match(reg);
+    		if (r != null)
+      		return unescape(r[2]);
+   			return null;
+		} 
+//		alert(GetQueryString("id"));
+		function getClassity(){
+			$.ajax({
+				type:"post",
+				url:"http://yiezi.ml:80/json/viewBlogCategory?id="+GetQueryString("id"),
+				ccontentType:"application/json",
+				success:function(response){
+					$("#lm").val(response[0].flmc);
+					$("#updata").click(function(){
+						var flmc=$("#lm").val();
+						$.ajax({
+							type:"post",
+							url:"http://yiezi.ml:80/json/updateBlogCategory?id="+GetQueryString("id"),
+							ccontentType:"application/json",
+							data:{"flmc":flmc},
+							success:function(response){
+								if(response[0].result){
+									alert(response[0].message);
+								}
+							}
+						});
+					});
+				},
+				error:function(data){  
+                	alert("error");                   
+            	} 
+			});
+		}
+	</script>
+</html>

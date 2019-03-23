@@ -1,0 +1,27 @@
+*{margin: 0;padding: 0;}
+a{text-decoration: none;color: none;}
+input{border: none;outline: none;}
+ul,ol,li{list-style: none;}
+
+/*内容*/
+section{float:left;margin: 10px 0;}
+button{outline: none;border: none;}
+table{
+	width: 90%;
+	margin: 10px auto;
+	empty-cells: show;/*显示空单元格*/
+	border-collapse: collapse;/*合并单元格边框*/
+	border: 1px solid #7AC9CB;
+	border-radius: 5px;
+	font-size: 15px;
+}
+th{
+	background-repeat: repeat-x;/*定义水平平铺*/
+	height: 30px;
+	background-color: #CCC;
+}
+td{height: 20px;text-align: center;}
+th,td{border: 1px solid #7AC9CB;padding: 0 1em 0;/*单元格左右两侧补白，一个字距*/}
+
+button{background-color: #66CCCC;border-radius: 10px;width: 70px;height: 20px;}
+#text{width: 500px;height: 30px;margin-left: 30%;margin-top: 20px;border-radius: 10px;background-color: #ACD9F8;}

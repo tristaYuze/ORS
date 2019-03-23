@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				height: 567px;
+				background: -webkit-linear-gradient(left top, #F5F5F5, #91E6FB); /* Safari 5.1 - 6.0 */
+			    background: -o-linear-gradient(bottom right,  #F5F5F5, #91E6FB); /* Opera 11.1 - 12.0 */
+		  	    background: -moz-linear-gradient(bottom right,  #F5F5F5, #91E6FB); /* Firefox 3.6 - 15 */
+			    background: linear-gradient(to bottom right,  #F5F5F5, #91E6FB); 
+			}
+			ul,ol,li{list-style: none;}
+			a{text-decoration: none;color: none;}
+			details{
+				width: 80%;padding-bottom: 20px;
+				margin-left: 10%;
+			}
+			summary{outline: none;}
+			summary input{
+				width: 80%;
+				height: 30px;
+				margin-top: 20px;
+				font-family: "楷体";
+			    font-size: 18px;
+			    background-color: #7AC9CB;
+			    border-radius: 10px;
+			}
+			li a{
+				width: 70%;
+				height: 25px;
+				line-height: 30px;
+				margin-left: 20%;
+				font-family: "楷体";
+			    font-size: 18px;color: black;
+			}
+			a:hover{color: #FF6666;}
+			.searchA{margin-left: 20%;margin-top: 10px;}
+		</style>
+	</head>
+	<body>
+		<details>
+			<summary><input type="button" value="账号管理"></summary>
+			<li><a href="addAcount.html" target="right">新增账号</a></li>
+			<li><a href="SCAcount.html" target="right">删除/修改账号</a></li>
+			<li><a href="LAcount.html" target="right">查询账号</a></li>
+		</details>
+		<details>
+			<summary><input type="button" value="博文管理"></summary>
+			<li><a href="SCBlog.html" target="right">删除博文</a></li>
+			<li><a href="LBlog.html" target="right">查询博文</a></li>
+		</details>
+		<details>
+			<summary><input type="button" value="资源数据管理"></summary>
+			<li><a href="SCResource.html" target="right">删除资源</a></li>
+			<li><a href="LResource.html" target="right">查询资源</a></li>
+		</details>
+		<details>
+			<summary><input type="button" value="便签管理"></summary>
+			<li><a href="addClassify.html" target="right">新增分类</a></li>
+			<li><a href="SXClassify.html" target="right">删除/修改分类</a></li>
+			<li><a href="LClassify.html" target="right">查询分类</a></li>
+		</details>
+	</body>
+</html>

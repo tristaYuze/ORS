@@ -1,0 +1,31 @@
+*{margin: 0;padding: 0;border: none;}
+a{text-decoration: none;color: none;}
+input{border: none;}
+a{color: black;}
+ul,ol,li{list-style: none;}
+body{background: url(../img/login1.jpg);}
+section{
+	width: 60%;
+	margin: 0 20%;
+	padding-top: 70px;
+	line-height: 80px;
+	font-size: 18px;
+	font-family: "华文仿宋";
+	background: white;
+}
+section h2{width: 80%;height: 30px;margin: 5px 10%;}
+section h2 input{
+	width: 70%;
+	height: 30px;
+	background: whitesmoke;
+	border-radius: 10px;
+}
+section h4,#creatFile{margin-top: 25px;}
+section h4{margin-left: 10%;}
+section h4 select{background: whitesmoke;width: 10%;}
+section textarea{width: 80%;height: 500px;background: whitesmoke;margin: 5px 10%;}
+#creatFile{margin-left: 10%;}
+#complete{
+	clear: both;width: 70px;height: 25px;
+	text-align: center;background: #66CCCC;border-radius: 10px;margin-left: 45%;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../css/manage.css" />
+		<!--<script type="text/javascript" src="page/paging.js" ></script>-->
+		<script type="text/javascript" src="../../js/jQuerybag.js" ></script>
+		<script type="text/javascript" src="../../js/manageSearch.js" ></script>
+		<meta http-equiv="content-type" content="text/html" charset="utf-8">
+		<title></title>
+		<style>
+			button{outline: none;border: none;}
+			a:link{color: #66CCCC;}
+			a:visited{color: #66CCCC;}
+			a:hover{color: #FF6666;}
+		</style>
+	</head>
+	<body onload="getAcount()">
+		<input type="text" name="search" id="text" class="search" placeholder="搜索关键字">
+		<table id="accountTab">
+			<thead>
+				<th id="id">行号</th>
+				<th id="account">账号</th>
+				<th id="pwd">密码</th>
+				<th id="nc">昵称</th>
+				<th id="name">姓名</th>
+				<th id="sex">性别</th>
+				<th id="birthday">出生日期</th> 
+			</thead>
+			<tbody id="tbody">
+			</tbody>
+		</table>
+	</body>
+	<script language="JavaScript">
+		function getAcount(){
+			$.ajax({
+				type:"get",
+				url:"http://yiezi.ml:80/browseMember/json",
+				ccontentType:"application/json",
+				success:function(response){
+					for(var i in response){
+						var tr;
+						tr="<td>"+response[i].id+"</td>"+"<td>"+response[i].zh+"</td>"+
+						"<td>"+response[i].dlmm+"</td>"+"<td>"+response[i].yhnc+"</td>"+
+						"<td>"+response[i].xm+"</td>"+"<td>"+response[i].xb+"</td>"+
+						"<td>"+20+response[i].csrq+"</td>"
+						$("#tbody").append("<tr>"+tr+"</tr>");
+					}
+				},
+				error:function(data){  
+                	alert("error");                   
+            	} 
+			});
+		}
+	</script>
+</html>

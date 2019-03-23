@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../css/manage.css" />
+		<script type="text/javascript" src="../../js/jQuerybag.js" ></script>
+		<script type="text/javascript" src="../../js/manageSearch.js" ></script>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body onload="getBlog()">
+		<input type="text" name="search" id="text" class="search" placeholder="搜索关键字"> 
+		<table>
+			<thead>
+				<th id="id">行号</th>
+				<th id="bt">标题</th>
+				<th id="classify">分类</th>
+				<th id="fbz">发布者</th>
+				<th id="fbtime">发布时间</th>
+				<th id="lnum">浏览量</th>
+			</thead>
+			<tbody id="tbody">
+			</tbody>
+		</table>
+	</body>
+	<script>
+		 
+		function getBlog(){
+			$.ajax({
+				type:"get",
+				url:"http://yiezi.ml:80/browseBlogsByPhone/json",
+				ccontentType:"application/json",
+				success:function(response){
+					for(var i in response){
+						var data = getMyDate(response[i].bwcjsj);
+						var tr;
+						tr="<td>"+response[i].id+"</td>"+"<td>"+response[i].bwbt+"</td>"+
+						"<td>"+response[i].blogCategoryId+"</td>"+"<td>"+response[i].editor+"</td>"
+						+"<td>"+data+"</td>"+"<td>"+response[i].bwdjcs+"</td>"
+						$("#tbody").append("<tr>"+tr+"</tr>");
+					}
+				},
+				error:function(data){  
+                	alert("error");                   
+            	} 
+			});
+		}
+	</script>
+</html>

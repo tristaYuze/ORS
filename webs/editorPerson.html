@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../css/headerTop.css" />
+		<link rel="stylesheet" type="text/css" href="../css/editorPerson.css" />
+		<script type="text/javascript" src="../js/editorPerson.js" ></script>
+		<script type="text/javascript" src="../js/jQuerybag.js" ></script>
+		<meta charset="UTF-8">
+		<title>编辑个人资料</title>
+	</head>
+	<body>
+		<header class="top">
+			<div class="logo"><a href="index.html"><img src="../img/logo (2).png" /></a></div>
+			<nav class="topmain">
+				<a href="index.html">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="boke.html">博客</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="download.html">下载</a>&nbsp;&nbsp;
+				<a href="noteshare.html">便签分享</a>&nbsp;&nbsp;
+			    <a href="person.html">个人中心</a>&nbsp;&nbsp;
+			</nav>
+			<div class="topsearch">
+				<input type="search" class="search" placeholder="搜索一下"/>
+				<input type="image" src="../img/searchimg.png" class="searchbtn" />
+			</div>
+			<div class="boke"><img  class="bokeimg" src="../img/wboke.png" /></div> 
+			<nav class="toplogin">
+				<a class="wboke" href="writeBoke.html">写博客</a>&nbsp;
+				<a class="login" href="login.html">登录</a>&nbsp;
+				<a class="enroll" href="enroll.html">注册</a>&nbsp;
+			</nav>
+		</header>
+		<section>
+			<div class="inner">
+				<p>个人资料</p>
+				<form id="personInner">
+					昵称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="username" type="text" /><br/>
+					出生年月：<input id="birth" type="datetime" value=""/><br/>
+					个性签名：<textarea id="sign" type="text"></textarea>
+				</form>
+				<p>修改密码</p>
+				<form>
+					当前密码：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" /><br/>
+					输入新密码：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" /><br/>
+					再次输入新密码：<input type="password" />
+				</form>
+				<input id="submit" type="submit" formmethod="post" onclick="formsubmit()"/>
+			</div>
+		</section>
+	</body>
+</html>

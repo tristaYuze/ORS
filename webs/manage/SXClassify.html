@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../css/manage.css" />
+		<script type="text/javascript" src="../../js/jQuerybag.js" ></script>
+		<script type="text/javascript" src="../../js/manageSearch.js" ></script>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body onload="getClassity()">
+		<input type="text" name="search" id="text" class="search" placeholder="搜索关键字">
+		<table id="classifyTab">
+			<thead>
+				<th id="id">行号</th>
+				<th id="lm">类名</th>
+				<th id="cz">操作</th>
+			</thead>
+			<tbody id="tbody">
+			</tbody>
+		</table>
+	</body>
+	<script>
+		function show(addr_id){
+			$.ajax({
+				type:"post",
+				url:"http://yiezi.ml:80/josn/delBlogCategory?id="+addr_id,
+				contentType:'application/json',
+				success:function(response){
+					window.location.href="SXClassify.html";
+				},
+			});
+		}
+		function getClassity(){
+			$.ajax({
+				type:"get",
+				url:"http://yiezi.ml:80/json/browseBlogCategory",
+				ccontentType:"application/json",
+				success:
+				function(response){
+					for(var i in response){
+						var tr;
+						var cz="<td><a>修改</a>&nbsp;&nbsp;<button onclick='show("+response[i].id+")'>删除</button></td>"
+						tr="<td>"+response[i].id+"</td>"+"<td>"+response[i].flmc+"</td>"
+						$("#tbody").append("<tr>"+tr+cz+"</tr>");
+						$("tbody tr td:last a:first").attr({href:"updateClassify.html?id="+response[i].id,targets:"right"});
+						$("tbody tr td:last button").attr({"id":"delete"});
+					}
+				},
+				error:function(data){  
+                	alert("error");                   
+            	} 
+			});
+		}
+	</script>
+</html>

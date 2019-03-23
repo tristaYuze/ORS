@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../../css/manage.css" />
+		<script type="text/javascript" src="../../js/jQuerybag.js" ></script>
+		<script type="text/javascript" src="../../js/jquery-1.11.0.js" ></script>
+		<script type="text/javascript" src="../../js/manageSearch.js" ></script>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			button{outline: none;border: none;}
+			a:link{color: #66CCCC;}
+			a:visited{color: #66CCCC;}
+			a:hover{color: #FF6666;}
+		</style>
+	</head>
+	<body onload="getAcount()">
+		<input type="text" name="search" id="text" class="search" placeholder="搜索关键字">
+		<table id="accountTab">
+			<thead>
+				<th id="id">行号</th>
+				<th id="account">账号</th>
+				<th id="pwd">密码</th>
+				<th id="name">姓名</th>
+				<th id="sex">性别</th>
+				<th id="birthday">出生日期</th> 
+				<th id="cz">操作</th>
+			</thead>
+			<tbody id="tbody">
+			</tbody>
+		</table>
+		<script language="JavaScript">
+			function show(addr_id){
+				$.ajax({
+					type:"post",
+					url:"http://yiezi.ml:80/json/delUser?id="+addr_id,
+					contentType:'application/json',
+					success:function(response){
+						window.location.href ="SCAcount.html";
+					},
+				});
+			}
+			function getAcount(){
+				var id=$("#id").val();
+				$.ajax({
+					type:"post",
+					url:"http://yiezi.ml:80/browseMember/json",
+					contentType:'application/json',
+					success:function(response){
+						for(var i in response){
+							var tr;
+							var cz="<td><a>修改</a>&nbsp;&nbsp;<button onclick='show("+response[i].id+")'>删除</button></td>"
+							tr="<td>"+response[i].id+"</td>"+"<td>"+response[i].zh+"</td>"+"<td>"+response[i].dlmm+"</td>"+"<td>"+response[i].xm+"</td>"+"<td>"+response[i].xb+"</td>"+"<td>"+20+response[i].csrq+"</td>"
+							$("#tbody").append("<tr>"+tr+cz+"</tr>");
+							$("tbody tr td:last a:first").attr({href:"updateAcount.html?id="+response[i].id,targets:"right"});
+//							$("tbody tr td:last button").attr("onclick","show('+response[i].id+')");
+						}
+					},
+					error:function(data){  
+	                	alert("error");                   
+	            	} 
+				});
+			}
+		</script>
+	</body>
+	
+</html>
